@@ -24,7 +24,7 @@ internal class Ejemplos
 
     }
 
-    //Realizar una llamada a cada método definido en CasoLinq
+    //Realizar una llamada a cada método definido en CasoLinq y mostar por consola según corresponda
     public static void EjemploLinq()
     {
 
