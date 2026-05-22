@@ -21,12 +21,12 @@ public class CasoLinq
     private List<Libro> libros = Libro.CrearLista();
 
 
-    public Libro GetPrimero(Libro libro)
+    public Libro GetPrimero()
     {
         return libros.First();
     }
 
-    public Libro GetUltimo(Libro libro)
+    public Libro GetUltimo()
     {
         return libros.Last();
     }
@@ -50,13 +50,26 @@ public class CasoLinq
        return libros.Select(l => $"{l.Titulo} - {l.Precio:C}").ToList();
     }
 
-    public Libro GetMayorPrecio (Libro libro)
+    public Libro GetMayorPrecio ()
     {
         return libros.OrderByDescending(l => l.Precio).First();
 
     }
-    public Libro GetMenorPrecio(Libro libro)
+    public Libro GetMenorPrecio()
     {
         return libros.OrderBy(l => l.Precio).First();
     }
+    public List<Libro> GetMayorPromedio()
+    {
+        var promedioLibros = libros.Average(l => l.Precio);
+
+        return libros.Where(l => l.Precio > promedioLibros).ToList();
+    }
+
+    public List<Libro> GetLibrosOrdenados()
+    {
+        return libros.OrderByDescending(l => l.Titulo).ToList();
+    }
+
+
 }
